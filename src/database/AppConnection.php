@@ -1,13 +1,11 @@
 <?php
-namespace App\Database;
-
 use \Doctrine\DBAL\DriverManager;
 
 class AppConnection 
 {
     public static function getConnection() {
         static $conn = null;
-        if (isset($conn)) {
+        if (!isset($conn)) {
             $connectionParams = [
                 'dbname' => 'url_shortener',
                 'user' => 'root',
